@@ -1,35 +1,123 @@
-<style>
-/* ===== BUTTONS ===== */
-.buttons{
-  margin-top:60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-  max-width:900px;
-  margin-left:auto;
-  margin-right:auto;
-}
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>ديكورات الفوجي | Fuji Decoration — SMOU GROUP</title>
 
-.btn{
-  display:block;
-  text-decoration:none;
-  padding:16px 20px;
-  border-radius:16px;
-  font-size:16px;
-  font-weight:500;
-  color:#fff;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.2);
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
-  transition:all .3s ease;
-  text-align:center;
-}
+  <style>
+    :root{
+      --navy:#0b1b2b;
+      --navy2:#12324f;
+      --bg:#f4f6f8;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui;background:var(--bg)}
+    
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      position:relative;
+      padding:40px 0;
+      background:
+        url("back.webp") center/cover no-repeat,
+        url("back.jpg") center/cover no-repeat,
+        url("back.png") center/cover no-repeat,
+        linear-gradient(180deg,var(--navy2),var(--navy));
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.65));
+    }
+    .container{
+      position:relative;
+      max-width:1000px;
+      padding:20px;
+      margin:auto;
+      width:100%;
+    }
+    .logo{
+      width:72px;height:72px;
+      margin:0 auto 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.14);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .logo img{width:85%;height:85%;object-fit:contain}
 
-.btn:hover{
-  background:rgba(255,255,255,0.18);
-  transform:translateY(-6px);
-  box-shadow:0 15px 35px rgba(0,0,0,.4);
-}
-</style>
+    h1{margin:0;font-size:30px;letter-spacing:.2px}
+    p{margin:10px 0 0;opacity:.92;font-size:18px}
+
+    /* ===== Glass Buttons ===== */
+    .buttons{
+      margin:45px auto 0;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:18px;
+      max-width:920px;
+    }
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      padding:16px 18px;
+      border-radius:18px;
+      font-size:16px;
+      font-weight:600;
+      color:#fff;
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.22);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+    .btn:hover{
+      background:rgba(255,255,255,0.18);
+      transform:translateY(-6px);
+      box-shadow:0 18px 45px rgba(0,0,0,.38);
+    }
+
+    @media(max-width:520px){
+      h1{font-size:24px}
+      p{font-size:15px}
+      .btn{font-size:15px}
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="container">
+
+      <div class="logo">
+        <img src="logo.png" alt="SMOU GROUP">
+      </div>
+
+      <h1>ديكورات الفوجي — Fuji Decoration</h1>
+      <p>اختر نوع الكابينة للدخول إلى المعرض</p>
+
+      <div class="buttons">
+        <a class="btn" href="https://silver.smougroup.com/" target="_blank" rel="noopener">Silver Cabin — الكبائن الفضية</a>
+        <a class="btn" href="https://gold.smougroup.com/" target="_blank" rel="noopener">Gloden Cabin — الكبائن الذهبية</a>
+        <a class="btn" href="https://rosegold.smougroup.com/" target="_blank" rel="noopener">Rosegold Cabin — الكبائن الروزجولد</a>
+        <a class="btn" href="https://black.smougroup.com/" target="_blank" rel="noopener">Black Cabin — الكبائن السوداء</a>
+        <a class="btn" href="https://panoramic.smougroup.com/" target="_blank" rel="noopener">Panoramic Cabin — الكبائن البانوراما</a>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>
