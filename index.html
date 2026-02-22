@@ -1,160 +1,36 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>ديكورات الفوجي | Fuji Decoration — SMOU GROUP</title>
-
-<style>
-:root{
-  --primary:#0b1b2b;
-  --primary2:#12324f;
-  --accent:#1f5e9c;
-  --accent2:#0d3f6d;
-}
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:system-ui;
-  background:#f4f6f8;
-}
-
-/* ===== HERO ===== */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#fff;
-  position:relative;
-  background:
-    url("back.webp") center/cover no-repeat,
-    url("back.jpg") center/cover no-repeat,
-    url("back.png") center/cover no-repeat,
-    linear-gradient(180deg,var(--primary2),var(--primary));
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.65));
-}
-
-.container{
-  position:relative;
-  max-width:1000px;
-  padding:20px;
-}
-
-/* ===== LOGO + TITLE ===== */
-.logo{
-  width:70px;
-  height:70px;
-  margin:auto;
-  margin-bottom:20px;
-  background:rgba(255,255,255,.15);
-  border-radius:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.logo img{
-  width:85%;
-  height:85%;
-  object-fit:contain;
-}
-
-h1{
-  margin:0;
-  font-size:28px;
-}
-
-h2{
-  margin-top:15px;
-  font-weight:normal;
-  opacity:.9;
-}
-
 /* ===== BUTTONS ===== */
 .buttons{
-  margin-top:50px;
+  margin-top:60px;
   display:grid;
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .btn{
   display:block;
   text-decoration:none;
-  background:var(--accent);
-  color:#fff;
-  padding:15px;
-  border-radius:12px;
+  padding:16px 20px;
+  border-radius:16px;
   font-size:16px;
-  transition:.3s;
+  font-weight:500;
+  color:#fff;
+
+  /* Glass Effect */
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.2);
+
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:all .3s ease;
+  text-align:center;
 }
 
 .btn:hover{
-  background:var(--accent2);
-  transform:translateY(-4px);
+  background:rgba(255,255,255,0.18);
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px rgba(0,0,0,.4);
 }
-
-/* Responsive */
-@media(min-width:700px){
-  .buttons{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(min-width:1000px){
-  .buttons{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-</style>
-</head>
-
-<body>
-
-<section class="hero">
-<div class="container">
-
-  <div class="logo">
-    <img src="logo.png" alt="SMOU GROUP">
-  </div>
-
-  <h1>ديكورات الفوجي — Fuji Decoration</h1>
-  <h2>اختر نوع الكابينة للدخول إلى المعرض</h2>
-
-  <div class="buttons">
-
-    <a class="btn" href="https://silver.smougroup.com/" target="_blank">
-      الكبائن الفضي — Silver Cabin
-    </a>
-
-    <a class="btn" href="https://gold.smougroup.com/" target="_blank">
-      الكبائن الذهبي — Gloden Cabin
-    </a>
-
-    <a class="btn" href="https://rosegold.smougroup.com/" target="_blank">
-      الكبائن الروزجولد — Rosegold Cabin
-    </a>
-
-    <a class="btn" href="https://Black.smougroup.com/" target="_blank">
-      الكبائن السوداء — Black Cabin
-    </a>
-
-    <a class="btn" href="https://panoramic.smougroup.com/" target="_blank">
-      الكبائن البانوراما — Panoramic Cabin
-    </a>
-
-  </div>
-
-</div>
-</section>
-
-</body>
-</html>
