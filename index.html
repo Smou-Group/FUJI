@@ -1,94 +1,160 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<title>كشف العائلة</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ديكورات الفوجي | Fuji Decoration — SMOU GROUP</title>
 
 <style>
+:root{
+  --primary:#0b1b2b;
+  --primary2:#12324f;
+  --accent:#1f5e9c;
+  --accent2:#0d3f6d;
+}
+
+*{box-sizing:border-box}
+
 body{
-  font-family: Tahoma, Arial;
-  background:#f7f7f7;
+  margin:0;
+  font-family:system-ui;
+  background:#f4f6f8;
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  position:relative;
+  background:
+    url("back.webp") center/cover no-repeat,
+    url("back.jpg") center/cover no-repeat,
+    url("back.png") center/cover no-repeat,
+    linear-gradient(180deg,var(--primary2),var(--primary));
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.65));
+}
+
+.container{
+  position:relative;
+  max-width:1000px;
   padding:20px;
 }
-h2{margin-bottom:10px}
-input{
-  padding:10px;
-  width:300px;
-  font-size:16px;
+
+/* ===== LOGO + TITLE ===== */
+.logo{
+  width:70px;
+  height:70px;
+  margin:auto;
+  margin-bottom:20px;
+  background:rgba(255,255,255,.15);
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-table{
-  width:100%;
-  border-collapse:collapse;
+.logo img{
+  width:85%;
+  height:85%;
+  object-fit:contain;
+}
+
+h1{
+  margin:0;
+  font-size:28px;
+}
+
+h2{
   margin-top:15px;
-  background:#fff;
+  font-weight:normal;
+  opacity:.9;
 }
-th,td{
-  border:1px solid #ccc;
-  padding:10px;
-  text-align:right;
+
+/* ===== BUTTONS ===== */
+.buttons{
+  margin-top:50px;
+  display:grid;
+  gap:20px;
 }
-th{
-  background:#0f5c6e;
+
+.btn{
+  display:block;
+  text-decoration:none;
+  background:var(--accent);
   color:#fff;
+  padding:15px;
+  border-radius:12px;
+  font-size:16px;
+  transition:.3s;
 }
-tr:nth-child(even){background:#f2f2f2}
-.note{color:#666;margin-top:8px}
+
+.btn:hover{
+  background:var(--accent2);
+  transform:translateY(-4px);
+}
+
+/* Responsive */
+@media(min-width:700px){
+  .buttons{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(min-width:1000px){
+  .buttons{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
 </style>
 </head>
 
 <body>
 
-<h2>🔎 البحث باسم العائلة</h2>
+<section class="hero">
+<div class="container">
 
-<input id="search" placeholder="اكتب اسم العائلة" />
-<div class="note" id="info">يرجى رفع ملف البيانات</div>
-<br><br>
-<input type="file" id="file" accept=".csv">
+  <div class="logo">
+    <img src="logo.png" alt="SMOU GROUP">
+  </div>
 
-<table id="table" style="display:none">
-  <thead></thead>
-  <tbody></tbody>
-</table>
+  <h1>ديكورات الفوجي — Fuji Decoration</h1>
+  <h2>اختر نوع الكابينة للدخول إلى المعرض</h2>
 
-<script>
-let data=[], headers=[];
-const FAMILY_COL = "العائلة";
+  <div class="buttons">
 
-document.getElementById("file").addEventListener("change", async e=>{
-  const text = await e.target.files[0].text();
-  const lines = text.trim().split("\n");
-  headers = lines[0].split(",");
-  data = lines.slice(1).map(l=>{
-    let obj={};
-    l.split(",").forEach((v,i)=>obj[headers[i]]=v);
-    return obj;
-  });
-  document.getElementById("info").innerText="تم تحميل البيانات";
-});
+    <a class="btn" href="https://silver.smougroup.com/" target="_blank">
+      الكبائن الفضي — Silver Cabin
+    </a>
 
-document.getElementById("search").addEventListener("input",()=>{
-  const q = document.getElementById("search").value.trim();
-  const table = document.getElementById("table");
-  const thead = table.querySelector("thead");
-  const tbody = table.querySelector("tbody");
+    <a class="btn" href="https://gold.smougroup.com/" target="_blank">
+      الكبائن الذهبي — Gloden Cabin
+    </a>
 
-  if(!q){ table.style.display="none"; return; }
+    <a class="btn" href="https://rosegold.smougroup.com/" target="_blank">
+      الكبائن الروزجولد — Rosegold Cabin
+    </a>
 
-  const norm = s => (s||"").toString().trim().replace(/\s+/g," ");
-const res = data.filter(r => norm(r[FAMILY_COL]).includes(norm(q)));
+    <a class="btn" href="https://Black.smougroup.com/" target="_blank">
+      الكبائن السوداء — Black Cabin
+    </a>
 
-  if(!res.length){
-    document.getElementById("info").innerText="لا توجد نتائج";
-    table.style.display="none";
-    return;
-  }
+    <a class="btn" href="https://panoramic.smougroup.com/" target="_blank">
+      الكبائن البانوراما — Panoramic Cabin
+    </a>
 
-  thead.innerHTML="<tr>"+headers.map(h=>`<th>${h}</th>`).join("")+"</tr>";
-  tbody.innerHTML=res.map(r=>"<tr>"+headers.map(h=>`<td>${r[h]||""}</td>`).join("")+"</tr>").join("");
-  table.style.display="table";
-  document.getElementById("info").innerText=`عدد النتائج: ${res.length}`;
-});
-</script>
+  </div>
+
+</div>
+</section>
 
 </body>
 </html>
